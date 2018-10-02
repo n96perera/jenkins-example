@@ -1,4 +1,7 @@
- node {
+
+pipeline {
+ agent {
+  node {
   jdk = tool name: 'jdk1.8.0_181'
   env.JAVA_HOME = "${jdk}"
 
@@ -11,9 +14,7 @@
   // substitution is done by shell script using environment
   bat '$JAVA_HOME/bin/java -version'
 }
-
-pipeline {
-    agent any
+ }
     stages {
         stage ('Compile Stage') {
 
