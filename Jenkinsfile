@@ -1,20 +1,6 @@
 
 pipeline {
- agent {
-  node {
-  jdk = tool name: 'jdk1.8.0_181'
-  env.JAVA_HOME = "${jdk}"
-
-  echo "jdk installation path is: ${jdk}"
-
-  // next 2 are equivalents
-  bat "${jdk}/bin/java -version"
-
-  // note that simple quote strings are not evaluated by Groovy
-  // substitution is done by shell script using environment
-  bat '$JAVA_HOME/bin/java -version'
-}
- }
+ agent any
     stages {
         stage ('Compile Stage') {
 
