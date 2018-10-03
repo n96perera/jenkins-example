@@ -2,8 +2,8 @@
 pipeline {
  agent any
     environment {
-        env.JAVA_HOME="${tool 'java 8'}"
-        env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
+        JAVA_HOME="${tool 'java 8'}"
+        PATH="${JAVA_HOME}/bin:${PATH}"
     }
     stages {
         stage ('Compile Stage') {
