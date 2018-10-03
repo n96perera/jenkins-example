@@ -15,8 +15,8 @@
         <junit.jupiter.version>5.0.0-M3</junit.jupiter.version>
         <junit.platform.version>1.0.0-M3</junit.platform.version>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8.0_181</maven.compiler.source>
+        <maven.compiler.target>1.8.0_181</maven.compiler.target>
     </properties>
 
     <build>
@@ -26,8 +26,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.5.1</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.8.0_181</source>
+                    <target>1.8.0_181</target>
                 </configuration>
             </plugin>
             <plugin>
