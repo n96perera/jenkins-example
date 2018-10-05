@@ -1,28 +1,12 @@
 
 pipeline {
- agent any
-    environment {
-        JAVA_HOME="${tool 'java 8'}"
-        PATH="${JAVA_HOME}/bin:${PATH}"
+    agent any
+
+    def cmdArray2 = ["python", "https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"]
+    def process = new ProcessBuilder(cmdArray2).redirectErrorStream(true).start()
+    process.inputStream.eachLine {
+      log.warn(it)
     }
-    stages {
-        stage ('Compile Stage') {
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn clean compile'
-                }
-            }
-        }
-
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'maven_3_5_0') {
-                    bat 'mvn test'
-                }
-            }
-        }
-
-
-    }
+    process.waitFor()
+    return process.exitValue()
 }
