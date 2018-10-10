@@ -1,29 +1,20 @@
 pipeline {
 
-    agent any
-
-	 environment {
-      def cmdArray2 = null
-      def process = null
-   }
-	
-    stages{
-       stage("first") {
-	         steps{
-			 
-			 script{
-             def cmdArray2 = ["python", "https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"]
-             def process = new ProcessBuilder(cmdArray2).redirectErrorStream(true).start()
-			   process.inputStream.eachLine {
-                  log.warn(it)
-             }
-             process.waitFor()
-             return process.exitValue()
-			 
-			 }
-			 }
-           
-      }
+ agent any
+ 
+    environment {
+        JAVA_HOME="${tool 'Java 8u181'}"
+        PATH="${JAVA_HOME}/bin:${PATH}"
     }
-   
+	
+    stages {
+        stage ('Run Stage') {
+            steps {
+                withEnv(python : 'CPython-2.7') {
+                    sh 'python https://github.com/n96perera/jenkins-example/blob/master/testpipe.py'
+                }
+            }
+        }
+
+    }
 }
