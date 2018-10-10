@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage ('Run Stage') {
             steps {
-                withEnv(['PYTHONPATH=C:/Python27']) {
+                withEnv(['CPython-2.7']) {
                     sh 'python https://github.com/n96perera/jenkins-example/blob/master/testpipe.py'
                 }
             }
