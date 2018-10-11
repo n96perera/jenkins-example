@@ -11,7 +11,7 @@ pipeline {
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
-                    bat 'python C:/Program Files (x86)/Jenkins/workspace/Test/Test/pipeline-with-python/testpipe.py'
+                    bat 'python "C:/Program Files (x86)/Jenkins/workspace/Test/Test/pipeline-with-python/testpipe.py"'
                 }
             }
         }
