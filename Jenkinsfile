@@ -11,7 +11,7 @@ pipeline {
 	     stage('Git Clone') {
             steps {
                 git branch: 'master',
-                credentialsName: 'gitrepository-test',//this has been taken from jenkins credentials
+                credentialsId: 'gitrepository-test',//this has been taken from jenkins credentials
                 url: 'https://github.com/n96perera/jenkins-example.git'
 
 			}	
@@ -20,7 +20,7 @@ pipeline {
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
-                    bat 'python "C:/Program Files (x86)/Jenkins/workspace/Test/Test/pipeline-with-python/testpipe.py"'
+                    bat 'python "https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"'
                 }
             }
         }
