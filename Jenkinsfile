@@ -8,6 +8,15 @@ pipeline {
     }
 	
     stages {
+	     stage('Git Clone') {
+            steps {
+                git branch: 'master',
+                credentialsName: 'gitrepository-test',//this has been taken from jenkins credentials
+                url: 'https://github.com/n96perera/jenkins-example.git'
+
+			}	
+        }
+	    
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
