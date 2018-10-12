@@ -7,6 +7,14 @@ pipeline {
     }
 	
     stages { 
+	     steps {
+                git branch: 'pipeline-test',
+                credentialsId: 'pipeline-test',//this has been taken from jenkins credentials
+                url:"https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"
+
+               sh "ls -lat"
+			}	
+        }
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
