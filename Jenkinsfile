@@ -7,6 +7,7 @@ pipeline {
     }
 	
     stages { 
+	    stage('git clone'){
 	     steps {
                 git branch: 'pipeline-test',
                 credentialsId: 'pipeline-test',//this has been taken from jenkins credentials
@@ -14,6 +15,8 @@ pipeline {
 
                sh "ls -lat"
 	}	
+	    
+}
        
         stage ('Run Stage') {
             steps {
