@@ -4,16 +4,17 @@ pipeline {
 	environment {
         JAVA_HOME="${tool 'Java 8u181'}"
         PATH="${JAVA_HOME}/bin:${PATH}"
-		
-		def pipeline = load "${"https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"}"
-
     }
 	
-    stages {   
+    stages { 
+	    
+	stage('Clone sources') {
+        git url: 'https://github.com/n96perera/jenkins-example/blob/master/testpipe.py'
+    }
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
-                    bat 'python "pipeline"'
+                    bat 'python "https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"'
                 }
             }
         }
