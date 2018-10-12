@@ -13,8 +13,8 @@ pipeline {
                 url:"https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"
 
                sh "ls -lat"
-			}	
-        }
+	}	
+       
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
