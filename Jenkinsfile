@@ -11,9 +11,8 @@ pipeline {
     stages { 
 	    stage('git clone'){
 	     steps {
-                git branch: 'pipeline-test',
+                git branch: 'master',
                 credentialsId: 'pipeline-test',//this has been taken from jenkins credentials
-		branch :"master"
                 url:"https://github.com/n96perera/jenkins-example.git"
 
 	}	
