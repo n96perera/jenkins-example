@@ -22,7 +22,7 @@ pipeline {
         stage ('Run Stage') {
             steps {
                 withEnv(['PYTHONPATH=C:/Python27']) {
-                    bat 'python "https://github.com/n96perera/jenkins-example/blob/master/testpipe.py"'
+                    bat 'python "testpipe.py"'
                 }
             }
         }
