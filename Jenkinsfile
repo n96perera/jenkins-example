@@ -12,7 +12,7 @@ pipeline {
 	     steps {
                 git branch: 'pipeline-test',
                 credentialsId: 'pipeline-test',//this has been taken from jenkins credentials
-                url:"https://github.com/n96perera/jenkins-example.git"
+                url:"ssh://git@github.com:n96perera/jenkins-example.git"
 
                sh "ls -lat"
 	}	
